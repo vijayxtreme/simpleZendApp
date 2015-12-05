@@ -1,4 +1,4 @@
-* From the Zend Framework Website *
+# From the Zend Framework Website 
 
 ZendSkeletonApplication
 =======================
