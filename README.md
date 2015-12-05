@@ -1,3 +1,5 @@
+* From the Zend Framework Website *
+
 ZendSkeletonApplication
 =======================
 
