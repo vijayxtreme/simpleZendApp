@@ -1,10 +1,21 @@
 <?php
 return array(
-	'service_manager' => array(
-         'invokables' => array(
-             'Blog\Service\PostServiceInterface' => 'Blog\Service\PostService'
+	'db' => array(
+         'driver'         => 'Pdo',
+         'username'       => 'root',  //edit this
+         'password'       => 'equate',  //edit this
+         'dsn'            => 'mysql:dbname=blog;host=localhost',
+         'driver_options' => array(
+             \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
          )
      ),
+ 	'service_manager' => array(
+         'factories' => array(
+             'Blog\Mapper\PostMapperInterface'   => 'Blog\Factory\ZendDbSqlMapperFactory',
+             'Blog\Service\PostServiceInterface' => 'Blog\Factory\PostServiceFactory',
+             'Zend\Db\Adapter\Adapter'           => 'Zend\Db\Adapter\AdapterServiceFactory',
+         )
+     ),	
 	'view_manager' => array(
          'template_path_stack' => array(
              __DIR__ . '/../view',
