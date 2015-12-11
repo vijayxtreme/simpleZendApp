@@ -23,7 +23,8 @@ return array(
      ),
 	'controllers' => array(
          'factories' => array(
-             'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory'
+             'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory',
+             'Blog\Controller\Write' => 'Blog\Factory\WriteControllerFactory'
          )
      ),
      // This lines opens the configuration for the RouteManager
@@ -49,6 +50,16 @@ return array(
                              ),
                              'constraints' => array(
                                  'id' => '[1-9]\d*'
+                             )
+                         )
+                     ),
+                     'add' => array(
+                         'type' => 'literal',
+                         'options' => array(
+                             'route'    => '/add',
+                             'defaults' => array(
+                                 'controller' => 'Blog\Controller\Write',
+                                 'action'     => 'add'
                              )
                          )
                      )
